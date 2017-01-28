@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css?family=Comfortaa');
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+
+div[data-role="content"] h1{
+	font-family: 'Raleway', cursive;
+	margin-top: 0px;
+    font-size: 300%;
+}
+div[data-role="header"] h1{
+	font-family: 'Raleway', cursive;
+}
+body,input,button,a,.ui-btn{
+	font-family: 'Raleway', cursive;
+}
+.headerLogo{
+	width:70px;
+	margin-top:2px
+}
+.textCenter{text-align:center;}
