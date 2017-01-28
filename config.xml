@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.phonegap.helloworld" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+<widget id="com.sample.hsa" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
     <name>HSA</name>
     <description>
         A sample PhoneGap app.
@@ -9,4 +9,12 @@
     </author>
     <content src="index.html" />
     <access origin="*" />
+	<preference name="orientation" value="portrait" />        <!-- all: default means both landscape and portrait are enabled -->
+    <preference name="android-installLocation" value="auto" />  <!-- android:install location. 'auto''internalOnly''preferExternal'-->
+	
+    <icon src="icon/icon.png" />
+    <icon src="icon/res/mipmap-mdpi/icon.png"   gap:platform="android"    gap:qualifier="mdpi" />
+    <icon src="icon/res/mipmap-hdpi/icon.png"   gap:platform="android"    gap:qualifier="hdpi" />
+    <icon src="icon/res/mipmap-xhdpi/icon.png"  gap:platform="android"    gap:qualifier="xhdpi" />
+
 </widget>
