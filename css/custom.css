@@ -1,13 +1,23 @@
-@import url('https://fonts.googleapis.com/css?family=Comfortaa');
-@import url('https://fonts.googleapis.com/css?family=Raleway');
-
+/* latin-ext */
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Raleway'), local('Raleway-Regular'), url(fonts/YZaO6llzOP57DpTBv2GnyFKPGs1ZzpMvnHX-7fPOuAc.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Raleway'), local('Raleway-Regular'), url(fonts/QAUlVt1jXOgQavlW5wEfxQLUuEpTyoUstqEm5AMlJo4.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
 div[data-role="content"] h1{
 	font-family: 'Raleway', cursive;
 	margin-top: 0px;
-    font-size: 300%;
-}
-div[data-role="header"] h1{
-	font-family: 'Raleway', cursive;
+    //font-size: 300%;
 }
 body,input,button,a,.ui-btn{
 	font-family: 'Raleway', cursive;
@@ -17,3 +27,5 @@ body,input,button,a,.ui-btn{
 	margin-top:2px
 }
 .textCenter{text-align:center;}
+#intro{    background-image: url(../img/circles.jpg);}
+#intro .ui-panel-wrapper{background:none;}
