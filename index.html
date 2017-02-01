@@ -55,7 +55,7 @@
           <option>You+Children</option>
           <option>Family</option>
         </select><br>
-        <p>Some helpful text for the user that gives details the information is safe. <a href="#helpText" data-position-to="#covTier" data-transition="slideup" data-rel="popup" class="ui-btn ui-shadow ui-btn-inline ui-corner-all ui-btn-b ui-icon-info ui-mini ui-icon-info appBtnColor">Learn More</a></p>
+        <p>Some helpful text for the user that gives details the information is safe. <a href="#helpText" data-position-to="#covTier" data-transition="fade" data-rel="popup" class="ui-btn ui-shadow ui-btn-inline ui-corner-all ui-btn-b ui-icon-info ui-mini ui-icon-info appBtnColor">Learn More</a></p>
         <div id="helpText" data-role="popup" data-theme="a" data-arrow="t" data-overlay-theme="a" class="ui-content">
 			Coverage level governs how much you can contribute annualy.
 		</div>
@@ -161,6 +161,13 @@
  function goBack() {
     window.history.back()
 }
+$.ajax({
+  url: "http://services.groupkt.com/country/get/iso2code/IN",
+  context: document.body
+}).done(function(data) {
+  console.log(data);
+  $("#subhead1").html(data.RestResponse.result.name)
+});
 /* $(document).on("pagecontainershow", function (e, ui) {
 	console.log("navigated!",e,ui); 
 });*/
