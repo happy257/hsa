@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,88 +9,193 @@
 <script src="js/jquery.mobile-1.4.5.min.js"></script>
 </head>
 <body>
-	<div id="globalHead" data-role="header" data-theme="b">
-		<div class="textCenter"><img class="headerLogo" src="img/aon_black.png" /></div>
+<div style="background:white" data-role="panel" id="mypanel" data-display="overlay" data-position-fixed="true">
+  <!-- PANEL -->
+  <div class="ui-panel-inner">
+	<div class="textCenter"><img class="panelBanner" src="img/aon_red.png" /></div>
+    <h3>Left Panel: Overlay</h3>
+    <p>This panel is positioned on the left with the overlay display mode. The panel markup should be <em>before</em> the header, content and footer in the source order.</p>
+    <p>To close, click off the panel, swipe left or right, hit the Esc key.</p>
+    <p>We need to figure out a way to include this on all screens except for the start.</p>
+  </div>
+</div>
+<!-- /PANEL -->
+
+<!-- Start of first page -->
+<div data-role="page" class="appPage" id="intro">
+  <div data-role="content">
+    <div class="ui-grid-solo">
+      <h1 style="text-align:center">App Banner</h1>
+      <h2>App Title</h2>
+      <p id="subhead1">Some introduction text goes here. This is a prototype only.</p>
+      <p id="subhead2">There can be some more text if need be. We have lots of space with us right now.</p>
+      <a href="#flow1"  class="ui-btn ui-shadow ui-btn-inline ui-corner-all ui-icon-carat-r ui-btn-icon-right appBtnColor">Get Started</a>
 	</div>
-	<!-- Start of first page -->
-	<div data-role="page" id="intro">
-	<!--div data-role="header" data-theme="b">
-		<h1>TITLE</h1>
-	</div><!-- /header -->
-	<div data-role="content">
-		<div class="ui-grid-solo">
-			<h1 style="text-align:center">App Banner</h1>
-			<h2>App Title</h2>
-			<p id="subhead1">Some introduction text goes here. This is a prototype only.</p>		
-			<p id="subhead2">There can be some more text if need be. We have lots of space with us right now.</p>		
-			<a href="#flow1" class="ui-btn ui-shadow ui-btn-inline ui-corner-all ui-btn-b ui-icon-carat-r ui-btn-icon-right">Get Started</a>
-			<a href="#mypanel" data-role="button" data-inline="true" data-icon="bars" class="ui-link ui-btn ui-icon-bars ui-btn-icon-left ui-btn-inline ui-shadow ui-corner-all" role="button">Open</a>
-		</div>
-	</div><!-- /content -->
-	<div data-role="panel" id="mypanel" data-display="overlay" data-position-fixed="true"> <!-- PANEL -->
-		<div class="ui-panel-inner"><h3>Left Panel: Overlay</h3><p>This panel is positioned on the left with the overlay display mode. The panel markup should be <em>before</em> the header, content and footer in the source order.</p><p>To close, click off the panel, swipe left or right, hit the Esc key.</p><p>We need to figure out a way to include this on all screens except for the start.</p></div>
-	</div> <!-- /PANEL -->
-	</div><!-- /page -->
-
+  </div>
+  <!-- /content -->
+</div>
+<!-- /page -->
 <!--FLOW1 START-->
-<div data-role="page" id="flow1">
-	<div data-role="header" data-theme="b">
-		<div class="textCenter"><img class="headerLogo" src="img/aon_black.png" /></div>
-	</div><!-- /header -->
-	<div data-role="content">	
-		<div class="ui-grid-solo">
-			<form name="form_flow1">
-				<label for="inp_age">Age:</label>
-				<input type="range" name="inp_age" id="age" min="18" max="100" value="25" />
-				<br>
-				<label for="inp_covTier">Coverage Level:</label>
-				<select name="inp_covTier" id="covTier" data-native-menu="false" data-inline="true">
-					<option>You Only</option>
-					<option>You+Spouse</option>
-					<option>You+Children</option>
-					<option>Family</option>
-				</select><br>
-				<p>Some helpful text for the user that gives details the information is safe.
-				<a href="#helpText" data-position-to="window" data-transition="flip" data-rel="popup" class="ui-btn ui-shadow ui-btn-inline ui-corner-all ui-btn-b ui-icon-info ui-mini ui-icon-info">Learn More</a></p>
-				<div id="helpText" data-role="popup" data-theme="b" data-overlay-theme="a" class="ui-content">
-					...Popup contents...
-				</div>
-				<div style="text-align:center">
-					<a href="#intro" class="ui-btn ui-shadow ui-btn-inline ui-corner-all ui-btn-b ui-icon-carat-l ui-btn-icon-notext"></a>
-					<a href="#flow2" class="ui-btn ui-shadow ui-btn-inline ui-corner-all ui-btn-b ui-icon-carat-r ui-btn-icon-notext"></a>
-				</div>
-
-			</form>
-		</div>	
-	</div><!-- /content -->
-	<div data-role="footer" data-position="fixed">
-		<h4>Footer</h4>
-	</div><!-- /footer -->
-</div><!-- /page --> 
+<div data-role="page" class="appPage" id="flow1">
+  <div data-role="header" data-theme="b">
+  <a href="#mypanel" class="ui-btn ui-shadow ui-btn-inline ui-corner-all ui-btn-b ui-icon-bars ui-btn-icon-notext"></a>
+    <div class="textCenter"><img class="headerLogo" src="img/aon_black.png" /></div>
+  </div>
+  <!-- /header -->
+  <div data-role="content">
+    <div class="ui-grid-solo">
+      <form name="form_flow1">
+        <label for="inp_age">Age:</label>
+        <input type="range" name="inp_age" id="age" min="18" max="100" value="25" />
+        <br>
+        <label for="inp_covTier">Coverage Level:</label>
+        <select name="inp_covTier" id="covTier" data-native-menu="false" data-inline="true">
+          <option>You Only</option>
+          <option>You+Spouse</option>
+          <option>You+Children</option>
+          <option>Family</option>
+        </select>
+        <br>
+        <p>Some helpful text for the user that gives details the information is safe. <a href="#helpText" data-position-to="window" data-transition="flip" data-rel="popup" class="ui-btn ui-shadow ui-btn-inline ui-corner-all ui-btn-b ui-icon-info ui-mini ui-icon-info appBtnColor">Learn More</a></p>
+        <div id="helpText" data-role="popup" data-theme="b" data-overlay-theme="a" class="ui-content appBtnColor"> ...Popup contents... </div>
+      </form>
+    </div>
+  </div>
+  <!-- /content -->
+  <div data-role="footer" data-position="fixed">
+    <div style="text-align:center"> <a href="#intro" onClick="goBack()" class="ui-btn ui-shadow ui-btn-inline ui-corner-all ui-btn-b ui-icon-carat-l ui-btn-icon-notext"></a> <a href="#flow2" class="ui-btn ui-shadow ui-btn-inline ui-corner-all ui-btn-b ui-icon-carat-r ui-btn-icon-notext"></a> </div>
+  </div>
+  <!-- /footer -->
+</div>
+<!-- /page -->
 <!-- FLOW2 START -->
-<div data-role="page" id="flow2">
-	<div data-role="header" data-theme="b">
-		<div class="textCenter">
-			<img class="headerLogo" src="img/aon_black.png" /></div>
-	</div><!-- /header -->
-	<div data-role="content">	
-		<div class="ui-grid-solo">
-			<form name="form_flow2">
-				<label for="inp_currHSABal">Current HSA Balance :</label>
-				<input type="number" name="inp_currHSABal" id="currHSABal"  />
-				<br>
-				<label for="inp_annualCont">Your Annual Contribution :</label>
-				<input type="range" min="0" max="6750" value="0"><br>
-				<div style="text-align:center">
-					<a href="#flow1" class="ui-btn ui-shadow ui-btn-inline ui-corner-all ui-btn-b ui-icon-carat-l ui-btn-icon-notext"></a>
-					<a href="#flow3" class="ui-btn ui-shadow ui-btn-inline ui-corner-all ui-btn-b ui-icon-carat-r ui-btn-icon-notext"></a>
-				</div>
-			</form>
-		</div>	
-	</div><!-- /content -->
-	<div data-role="footer" data-position="fixed">
-		<h4>Footer</h4>
-	</div><!-- /footer -->
-</div><!-- /page --> 
+<div data-role="page" class="appPage" id="flow2">
+  <div data-role="header" data-theme="b">
+  <a href="#mypanel" class="ui-btn ui-shadow ui-btn-inline ui-corner-all ui-btn-b ui-icon-bars ui-btn-icon-notext"></a>
+    <div class="textCenter"> <img class="headerLogo" src="img/aon_black.png" /></div>
+  </div>
+  <!-- /header -->
+  <div data-role="content">
+    <div class="ui-grid-solo">
+      <form name="form_flow2">
+        <label for="inp_currHSABal">Current HSA Balance :</label>
+        <input type="number" name="inp_currHSABal" id="currHSABal"  />
+        <br>
+        <label for="inp_annualCont">Your Annual Contribution :</label>
+        <input type="range" min="0" max="6750" value="0">
+      </form>
+    </div>
+  </div>
+  <!-- /content -->
+  <div data-role="footer" data-position="fixed">
+        <div style="text-align:center"> <a href="#flow1" onClick="goBack()" class="ui-btn ui-shadow ui-btn-inline ui-corner-all ui-btn-b ui-icon-carat-l ui-btn-icon-notext"></a> <a href="#flow3" class="ui-btn ui-shadow ui-btn-inline ui-corner-all ui-btn-b ui-icon-carat-r ui-btn-icon-notext"></a> </div>
+  </div>
+  <!-- /footer -->
+</div>
+<!-- /page -->
+<!-- FLOW3 START -->
+<div data-role="page" class="appPage" id="flow3">
+  <div data-role="header" data-theme="b">
+  <a href="#mypanel" class="ui-btn ui-shadow ui-btn-inline ui-corner-all ui-btn-b ui-icon-bars ui-btn-icon-notext"></a>
+    <div class="textCenter"> <img class="headerLogo" src="img/aon_black.png" /></div>
+  </div>
+  <!-- /header -->
+  <div data-role="content">
+    <div class="ui-grid-solo">
+      <form name="form_flow3">
+        <label for="inp_currHSABal">Estimated Annual Withdrawals</label>
+        <input type="range" min="0" max="100" value="0">
+       </form>
+    </div>
+  </div>
+  <!-- /content -->
+  <div data-role="footer" data-position="fixed">
+        <div style="text-align:center"> <a href="#flow2" onClick="goBack()" class="ui-btn ui-shadow ui-btn-inline ui-corner-all ui-btn-b ui-icon-carat-l ui-btn-icon-notext"></a> <a href="#flow4" class="ui-btn ui-shadow ui-btn-inline ui-corner-all ui-btn-b ui-icon-carat-r ui-btn-icon-notext"></a> </div>
+  </div>
+  <!-- /footer -->
+</div>
+<!-- /page -->
+<!-- FLOW4 START -->
+<div data-role="page" class="appPage" id="flow4">
+  <div data-role="header" data-theme="b">
+  <a href="#mypanel" class="ui-btn ui-shadow ui-btn-inline ui-corner-all ui-btn-b ui-icon-bars ui-btn-icon-notext"></a>
+    <div class="textCenter"> <img class="headerLogo" src="img/aon_black.png" /></div>
+  </div>
+  <!-- /header -->
+  <div data-role="content">
+    <div class="ui-grid-solo">
+      <form name="form_flow3">
+        <label for="inp_currHSABal">HSA Interest Rate</label>
+        <input type="range" min="0" max="10" value="0">
+        <br>
+		<label for="inp_currHSABal">Account Growth</label>
+        <input type="range" min="1" max="50" value="0">
+        <br>
+        <label for="inp_taxRate">Marginal Tax Rate</label>
+        <select name="inp_taxRate" id="taxRate" data-native-menu="false" data-inline="true">
+          <option>Select</option>
+		  <option value="10">10%</option>
+          <option value="15">15%</option>
+          <option value="25">25%</option>
+          <option value="28">28%</option>
+		  <option value="33">33%</option>
+		  <option value="35">35%</option>
+		  <option value="39.6">39.6%</option>
+        </select>
+		<a href="#" class="ui-btn ui-shadow ui-btn-inline ui-corner-all ui-mini ui-icon-carat-r ui-btn-icon-info ui-btn-mini">Get Started</a>
+      </form>
+    </div>
+  </div>
+  <!-- /content -->
+  <div data-role="footer" data-position="fixed">
+        <div style="text-align:center"> <a href="#flow3" onClick="goBack()" class="ui-btn ui-shadow ui-btn-inline ui-corner-all ui-btn-b ui-icon-carat-l ui-btn-icon-notext"></a> <a href="#flow5" class="ui-btn ui-shadow ui-btn-inline ui-corner-all ui-btn-b ui-icon-carat-r ui-btn-icon-notext"></a> </div>
+  </div>
+  <!-- /footer -->
+</div>
+<!-- /page -->
+<script>
+  jQuery(function() {
+    	$('#mypanel').enhanceWithin().panel();
+    });
+ function goBack() {
+    window.history.back()
+}
+/* $(document).on("pagecontainershow", function (e, ui) {
+	console.log("navigated!",e,ui); 
+});*/
+/*window.addEventListener('popstate', function(e) {
+ console.log("navigated!",e); 
+});
+$(window).on("navigate", function (e, data) {
+console.log("navigated!",data.state.hash);
+var direction = data.state.direction;
+  console.log( "navigated!",data,e);
+  if (direction == 'back') {
+    console.log("data.state==back========",data.state);
+	if(data.state.hash=='flow2'){
+				 $.mobile.navigate("#flow1", {
+    				transition: "fade"
+  				});
+				}
+  }
+	if (direction == 'forward') {
+     console.log("data.state==forward========",data.state)	
+  }
+  });*/						
+	
+/*							   
+ 								
+	 if (window.history && window.history.pushState) {
+		console.log("window.history.pushState==========",window.history.pushState);
+        window.history.pushState('', null, './');
+        $(window).on('popstate', function() {
+            console.log('Back button was pressed.');
+			
+			
+        });
+    }	
+});
+*/
+</script>
 </body>
 </html>
