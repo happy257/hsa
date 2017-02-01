@@ -48,16 +48,17 @@
         <label for="inp_age">Age:</label>
         <input type="range" name="inp_age" id="age" min="18" max="100" value="25" />
         <br>
-        <label for="inp_covTier">Coverage Level:</label>
-        <select name="inp_covTier" id="covTier" data-native-menu="false" data-inline="true">
+        <label for="inp_covTier">Coverage Level</label>
+        <select name="inp_covTier" id="covTier" data-native-menu="false" data-mini="true" data-inline="true">
           <option>You Only</option>
           <option>You+Spouse</option>
           <option>You+Children</option>
           <option>Family</option>
-        </select>
-        <br>
-        <p>Some helpful text for the user that gives details the information is safe. <a href="#helpText" data-position-to="window" data-transition="slideup" data-rel="popup" class="ui-btn ui-shadow ui-btn-inline ui-corner-all ui-btn-b ui-icon-info ui-mini ui-icon-info appBtnColor">Learn More</a></p>
-        <div id="helpText" data-role="popup" data-theme="b" data-overlay-theme="a" class="ui-content appBtnColor"> ...Popup contents... </div>
+        </select><br>
+        <p>Some helpful text for the user that gives details the information is safe. <a href="#helpText" data-position-to="#covTier" data-transition="slideup" data-rel="popup" class="ui-btn ui-shadow ui-btn-inline ui-corner-all ui-btn-b ui-icon-info ui-mini ui-icon-info appBtnColor">Learn More</a></p>
+        <div id="helpText" data-role="popup" data-theme="a" data-arrow="t" data-overlay-theme="a" class="ui-content">
+			Coverage level governs how much you can contribute annualy.
+		</div>
       </form>
     </div>
   </div>
@@ -132,7 +133,7 @@
         <input type="range" min="1" max="50" value="0">
         <br>
         <label for="inp_taxRate">Marginal Tax Rate</label>
-        <select name="inp_taxRate" id="taxRate" data-native-menu="false" data-inline="true">
+        <select name="inp_taxRate" id="taxRate" data-native-menu="false" data-mini="true" data-mini="true" data-inline="true">
           <option>Select</option>
 		  <option value="10">10%</option>
           <option value="15">15%</option>
@@ -141,8 +142,8 @@
 		  <option value="33">33%</option>
 		  <option value="35">35%</option>
 		  <option value="39.6">39.6%</option>
-        </select>
-		<a href="#" class="ui-btn ui-shadow ui-btn-inline ui-corner-all ui-mini ui-icon-carat-r ui-btn-icon-info ui-btn-mini">Get Started</a>
+        </select><br>
+		<a href="#flow1"  class="ui-btn ui-btn-b ui-shadow ui-btn-inline ui-corner-all ui-icon-carat-r ui-btn-icon-right">Get Started</a>
       </form>
     </div>
   </div>
