@@ -17,7 +17,6 @@
 div[data-role="content"] h1{
 	font-family: 'Raleway', cursive;
 	margin-top: 0px;
-    //font-size: 300%;
 }
 body,input,button,a,.ui-btn{
 	font-family: 'Raleway', cursive;
@@ -26,6 +25,14 @@ body,input,button,a,.ui-btn{
 	width:70px;
 	margin-top:2px
 }
+//Green Highlight on sliders
+a.ui-slider-handle.ui-btn{background:#000;border-radius:100%;box-shadow:1px 1px 0px #efefef;}
 .textCenter{text-align:center;}
 #intro{    background-image: url(../img/circles.jpg);}
 #intro .ui-panel-wrapper{background:none;}
+div[data-role=page]{    background-image: url(../img/pattern.svg);}
+.ui-panel-inner,#mypanel{
+	background: #E21A22 !important;
+    color: #fff;
+}
+.panelBanner{width:80%;}
