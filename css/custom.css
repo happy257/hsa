@@ -32,7 +32,7 @@ a.ui-slider-handle.ui-btn{background:#000;border-radius:100%;box-shadow:1px 1px 
 #intro .ui-panel-wrapper{background:none;}
 div[data-role=page]{    background-image: url(../img/pattern.svg);}
 .ui-panel-inner,#mypanel{
-	background: #E21A22 !important;
+	background: #8a0022 !important;
     color: #fff;
 }
-.panelBanner{width:80%;}
+.panelBanner{width:60%;}
