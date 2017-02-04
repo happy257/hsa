@@ -134,10 +134,10 @@
     <div class="ui-grid-solo">
       <form name="form_flow3">
         <label for="inp_currHSABal">HSA Interest Rate</label>
-        <input type="range" min="0" max="10" value="0">
+        <input type="range" min="0" max="10" value="0" id="interestRate">
         <br>
 		<label for="inp_currHSABal">Account Growth</label>
-        <input type="range" min="1" max="50" value="0">
+        <input type="range" min="1" max="50" value="0" id="years">
         <br>
         <label for="inp_taxRate">Marginal Tax Rate</label>
         <select name="inp_taxRate" id="taxRate" data-native-menu="false" data-mini="true" data-mini="true" data-inline="true">
@@ -150,38 +150,16 @@
 		  <option value="35">35.0%</option>
 		  <option value="39.6">39.6%</option>
         </select>
-		<a href="#taxCalcPopup" data-theme="b" data-position-to="window" data-transition="fade" data-rel="popup" data-role="button" data-mini="true" data-inline="true" data-icon="info">What's this?</a><br>
+		<a href="#taxCalcPopup" data-theme="b" data-position-to="#taxRate" data-transition="fade" data-rel="popup" data-role="button" data-mini="true" data-inline="true" data-icon="info">What's this?</a><br>
        
-        <div id="taxCalcPopup" data-role="popup" data-theme="a" data-overlay-theme="a" class="ui-content" data-dismissable="false">
+        <div id="taxCalcPopup" data-role="popup" data-theme="a" data-overlay-theme="b" class="ui-content" data-dismissable="false">
 			<p>Select your filing status and taxable income</p>
-			<div data-role="collapsibleset" data-theme="a" data-content-theme="a" data-mini="false">
-				<div data-role="collapsible">
-					<h3>Single</h3>
-					<ul data-role="listview">
-						<li><a href="#">List item 1</a></li>
-						<li><a href="#">List item 2</a></li>
-						<li><a href="#">List item 3</a></li>
-					</ul>
-				</div>
-				<div data-role="collapsible">
-					<h3>Married Filing Joint</h3>
-					<ul data-role="listview">
-						<li><a href="#">List item 1</a></li>
-						<li><a href="#">List item 2</a></li>
-						<li><a href="#">List item 3</a></li>
-					</ul>
-				</div>
-				<div data-role="collapsible">
-					<h3>Married Filing Seperate</h3>
-				</div>
-				<div data-role="collapsible">
-					<h3>Head of Household</h3>
-					
-				</div>
+			<div data-role="collapsibleset" data-theme="a" data-content-theme="a" data-mini="false" id="taxSet">
+	
 			</div>
 			<div class="disclaimer">Need to make these lists dynamic.</div>
 		</div>
-		<a href="#flow1"  class="ui-btn ui-btn-b ui-shadow ui-btn-inline ui-corner-all ui-icon-carat-r ui-btn-icon-right">Get Started</a>
+		<a href="#flow1" class="ui-btn ui-btn-b ui-shadow ui-btn-inline ui-corner-all ui-icon-carat-r ui-btn-icon-right">Get Started</a>
       </form>
     </div>
   </div>
