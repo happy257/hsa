@@ -7,6 +7,7 @@
 <link rel="stylesheet" href="css/custom.css">
 <script src="js/jquery-1.11.3.min.js"></script>
 <script src="js/jquery.mobile-1.4.5.min.js"></script>
+
 </head>
 <body>
 <div style="background:white" data-role="panel" id="mypanel" data-display="overlay" data-position-fixed="true">
@@ -45,18 +46,24 @@
   <div data-role="content">
     <div class="ui-grid-solo">
       <form name="form_flow1">
-        <label for="inp_age">Age:</label>
-        <input type="range" name="inp_age" id="age" min="18" max="100" value="25" />
-        <br>
-        <label for="inp_covTier">Coverage Level</label>
-        <select name="inp_covTier" id="covTier" data-native-menu="false" data-mini="true" data-inline="true">
-          <option>You Only</option>
-          <option>You+Spouse</option>
-          <option>You+Children</option>
-          <option>Family</option>
-        </select><br>
-        <p>Some helpful text for the user that gives details the information is safe. <a href="#helpText" data-position-to="#covTier" data-transition="fade" data-rel="popup" class="ui-btn ui-shadow ui-btn-inline ui-corner-all ui-btn-b ui-icon-info ui-mini ui-icon-info appBtnColor">Learn More</a></p>
-        <div id="helpText" data-role="popup" data-theme="a" data-arrow="t" data-overlay-theme="a" class="ui-content">
+        <label for="inpage">Age</label>
+        <input type="range" name="inpage" id="inpage" min="18" max="100" value="25" />
+        <br/>
+        <label for="covTier">Coverage Level</label>
+        <select name="covTier" id="covTier" class="covTier" data-native-menu="false" data-mini="true" data-inline="true">
+          <option value="0" disabled>Coverage Level</option>
+		  <option value="1" selected>You Only</option>
+          <option value="2">You+Spouse</option>
+          <option value="3">You+Children</option>
+          <option value="4">Family</option>
+        </select>
+		<a href="#covTierPopup" data-theme="b" data-position-to="#covTier" data-transition="fade" data-rel="popup" data-role="button" data-mini="true" data-inline="true" data-icon="info">Learn More</a><br>
+       
+	   <div data-role="footer" class="ui-corner-all mt30" data-position="inline">
+		<p class="disclaimer">Callout/Disclaimer<br>Some helpful text for the user that gives details the information is safe.</p>
+	   </div>
+		
+        <div id="covTierPopup" data-role="popup" data-theme="a" data-arrow="t" data-overlay-theme="a" class="ui-content">
 			Coverage level governs how much you can contribute annualy.
 		</div>
       </form>
@@ -83,7 +90,7 @@
         <input type="number" name="inp_currHSABal" id="currHSABal"  />
         <br>
         <label for="inp_annualCont">Your Annual Contribution :</label>
-        <input type="range" min="0" max="6750" value="0">
+        <input id="annualCont" name="inp_annualCont" type="range" min="0" max="0" value="0">
       </form>
     </div>
   </div>
@@ -104,8 +111,8 @@
   <div data-role="content">
     <div class="ui-grid-solo">
       <form name="form_flow3">
-        <label for="inp_currHSABal">Estimated Annual Withdrawals</label>
-        <input type="range" min="0" max="100" value="0">
+        <label for="annualWithdrawl">Estimated Annual Withdrawals</label>
+        <input type="range" id="annualWithdrawl" name="annualWithdrawl" min="0" max="100" value="0">
        </form>
     </div>
   </div>
@@ -135,14 +142,45 @@
         <label for="inp_taxRate">Marginal Tax Rate</label>
         <select name="inp_taxRate" id="taxRate" data-native-menu="false" data-mini="true" data-mini="true" data-inline="true">
           <option>Select</option>
-		  <option value="10">10%</option>
-          <option value="15">15%</option>
-          <option value="25">25%</option>
-          <option value="28">28%</option>
-		  <option value="33">33%</option>
-		  <option value="35">35%</option>
+		  <option value="10">10.0%</option>
+          <option value="15">15.0%</option>
+          <option value="25">25.0%</option>
+          <option value="28">28.0%</option>
+		  <option value="33">33.0%</option>
+		  <option value="35">35.0%</option>
 		  <option value="39.6">39.6%</option>
-        </select><br>
+        </select>
+		<a href="#taxCalcPopup" data-theme="b" data-position-to="window" data-transition="fade" data-rel="popup" data-role="button" data-mini="true" data-inline="true" data-icon="info">What's this?</a><br>
+       
+        <div id="taxCalcPopup" data-role="popup" data-theme="a" data-overlay-theme="a" class="ui-content" data-dismissable="false">
+			<p>Select your filing status and taxable income</p>
+			<div data-role="collapsibleset" data-theme="a" data-content-theme="a" data-mini="false">
+				<div data-role="collapsible">
+					<h3>Single</h3>
+					<ul data-role="listview">
+						<li><a href="#">List item 1</a></li>
+						<li><a href="#">List item 2</a></li>
+						<li><a href="#">List item 3</a></li>
+					</ul>
+				</div>
+				<div data-role="collapsible">
+					<h3>Married Filing Joint</h3>
+					<ul data-role="listview">
+						<li><a href="#">List item 1</a></li>
+						<li><a href="#">List item 2</a></li>
+						<li><a href="#">List item 3</a></li>
+					</ul>
+				</div>
+				<div data-role="collapsible">
+					<h3>Married Filing Seperate</h3>
+				</div>
+				<div data-role="collapsible">
+					<h3>Head of Household</h3>
+					
+				</div>
+			</div>
+			<div class="disclaimer">Need to make these lists dynamic.</div>
+		</div>
 		<a href="#flow1"  class="ui-btn ui-btn-b ui-shadow ui-btn-inline ui-corner-all ui-icon-carat-r ui-btn-icon-right">Get Started</a>
       </form>
     </div>
@@ -158,52 +196,13 @@
   jQuery(function() {
     	$('#mypanel').enhanceWithin().panel();
     });
- function goBack() {
-    window.history.back()
-}
 $.ajax({
   url: "http://services.groupkt.com/country/get/iso2code/IN",
   context: document.body
 }).done(function(data) {
-  console.log(data);
-  $("#subhead1").html(data.RestResponse.result.name)
-});
-/* $(document).on("pagecontainershow", function (e, ui) {
-	console.log("navigated!",e,ui); 
-});*/
-/*window.addEventListener('popstate', function(e) {
- console.log("navigated!",e); 
-});
-$(window).on("navigate", function (e, data) {
-console.log("navigated!",data.state.hash);
-var direction = data.state.direction;
-  console.log( "navigated!",data,e);
-  if (direction == 'back') {
-    console.log("data.state==back========",data.state);
-	if(data.state.hash=='flow2'){
-				 $.mobile.navigate("#flow1", {
-    				transition: "fade"
-  				});
-				}
-  }
-	if (direction == 'forward') {
-     console.log("data.state==forward========",data.state)	
-  }
-  });*/						
-	
-/*							   
- 								
-	 if (window.history && window.history.pushState) {
-		console.log("window.history.pushState==========",window.history.pushState);
-        window.history.pushState('', null, './');
-        $(window).on('popstate', function() {
-            console.log('Back button was pressed.');
-			
-			
-        });
-    }	
-});
-*/
+  //console.log(data);
+  $("#subhead1").html('Came via AJAX to '+data.RestResponse.result.name)});
 </script>
+<script src="js/custom.js"></script>
 </body>
 </html>
