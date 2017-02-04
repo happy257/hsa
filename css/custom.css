@@ -28,7 +28,7 @@ body,input,button,a,.ui-btn{
 //Green Highlight on sliders
 a.ui-slider-handle.ui-btn{background:#000;border-radius:100%;box-shadow:1px 1px 0px #efefef;}
 .textCenter{text-align:center;}
-#intro{    background-image: url(../img/circles.jpg);}
+#intro{background-image: url(../img/circles.jpg);background-repeat: no-repeat;}
 #intro .ui-panel-wrapper{background:none;}
 div[data-role=page]{    background-image: url(../img/pattern.svg);}
 .ui-panel-inner,#mypanel{
@@ -36,3 +36,7 @@ div[data-role=page]{    background-image: url(../img/pattern.svg);}
     color: #fff;
 }
 .panelBanner{width:60%;}
+input[type=number]{font-family:monospace;}
+ul#taxRate-menu li a {font-family:monospace;text-align:center;}
+.disclaimer{font-size:80%;padding:5px 10px;margin:0px}
+.mt30{margin-top:30px}
