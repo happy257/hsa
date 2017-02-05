@@ -16,5 +16,5 @@
     <icon src="icon/res/mipmap-mdpi/icon.png"   gap:platform="android"    gap:qualifier="mdpi" />
     <icon src="icon/res/mipmap-hdpi/icon.png"   gap:platform="android"    gap:qualifier="hdpi" />
     <icon src="icon/res/mipmap-xhdpi/icon.png"  gap:platform="android"    gap:qualifier="xhdpi" />
-
+	<plugin name="org.apache.cordova.vibration" spec="0.3.0" source="pgb" />
 </widget>
