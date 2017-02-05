@@ -182,7 +182,14 @@ $.ajax({
   context: document.body
 }).done(function(data) {
   //console.log(data);
-  $("#subhead1").html('Came via AJAX to '+data.RestResponse.result.name)});
+  $("#subhead1").html('Came via AJAX to '+data.RestResponse.result.name)})
+  .error(function(xhr,status,err){
+  console.warn(xhr);
+  $("#subhead1").html('AJAX status: '+status);
+  console.log(err);
+  
+  
+  });
 </script>
 <script src="js/custom.js"></script>
 </body>

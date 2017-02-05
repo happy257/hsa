@@ -9,6 +9,9 @@
     </author>
     <content src="index.html" />
     <access origin="*" />
+	<allow-intent href="*" />
+	<allow-navigation href="*" />
+
 	<preference name="orientation" value="portrait" />        <!-- all: default means both landscape and portrait are enabled -->
     <preference name="android-installLocation" value="auto" />  <!-- android:install location. 'auto''internalOnly''preferExternal'-->
 	
@@ -17,4 +20,5 @@
     <icon src="icon/res/mipmap-hdpi/icon.png"   gap:platform="android"    gap:qualifier="hdpi" />
     <icon src="icon/res/mipmap-xhdpi/icon.png"  gap:platform="android"    gap:qualifier="xhdpi" />
 	<plugin name="cordova-plugin-vibration" spec="~2.1.3" />
+	<plugin name="cordova-plugin-whitelist" spec="~1.3.1" />
 </widget>
