@@ -9,8 +9,13 @@
 <script src="js/jquery-1.11.3.min.js"></script>
 <script src="js/jquery.mobile-1.4.5.min.js"></script>
 <script src="js/custom.js"></script>
-<link rel="stylesheet" href="js/chartist.min.css">
+<link rel="stylesheet" href="css/chartist.min.css">
 <script src="js/chartist.min.js"></script>
+
+<!-- 
+	<link rel="stylesheet" href="js/chartist.min.css">
+	<script src="js/chartist.min.js"></script>
+-->
 </head>
 
 <body>
@@ -57,7 +62,7 @@
         <label for="covTier">Coverage Level</label>
         <select name="covTier" id="covTier" class="covTier" data-native-menu="false" data-mini="true" data-inline="true">
           <option value="0" disabled>Coverage Level</option>
-		  <option value="1" selected>You Only</option>
+		  <option selected value="1">You Only</option>
           <option value="2">You+Spouse</option>
           <option value="3">You+Children</option>
           <option value="4">Family</option>
@@ -119,8 +124,8 @@
         <label for="annualWithdrawl">Estimated Annual Withdrawals</label>
         <input type="range" id="annualWithdrawl" name="annualWithdrawl" onBlur="GLOBAL.getVal('annualWithdrawl')" min="0" max="100" value="0">
        </form>
-       <div class="ct-chart ct-golden-section" id="chart1"></div> 
-
+	   <div id="chartDiv"></div>
+		<a href="#" onClick="new Chartist.Line('#chartDiv',{labels: [1, 2, 3, 4], series: [[100, 120, 180, 200]] })">CHART</a>;
     </div>
   </div>
   <!-- /content -->
