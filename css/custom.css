@@ -28,12 +28,11 @@ body,input,button,a,.ui-btn{
 //Green Highlight on sliders
 a.ui-slider-handle.ui-btn{background:#000;border-radius:100%;box-shadow:1px 1px 0px #efefef;}
 .textCenter{text-align:center;}
-#intro{background-image: url(../img/circles.jpg);background-repeat: no-repeat;}
+#intro{background-image: url(../img/circles.jpg);background-repeat: no-repeat;background-color: #fff;}
 #intro .ui-panel-wrapper{background:none;}
-div[data-role=page]{    background-image: url(../img/pattern.svg);}
+div[data-role=page]{    background-image: url(../img/pattern2.svg);}
 .ui-panel-inner,#mypanel{
-	background: #8a0022 !important;
-    color: #fff;
+	background: #8a0022 !important;color: #fff;
 }
 .panelBanner{width:60%;}
 input[type=number]{font-family:monospace;}
