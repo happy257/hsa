@@ -1,9 +1,21 @@
 //Put custom code here
 
 // GLOBAL VARIABLES
+
+$(document).on("pagebeforeshow","#flow2",function(){
+  console.log("pagechange-flow2");updateContLimit()
+});
+$(document).on("pagebeforeshow","#flow3",function(){
+$( "#annualWithdrawl" ).slider();
+console.log("pagechange-flow2"); updateWithdrawlLimit()
+});
+$(document).on("pagebeforeshow","#flow4",function(){
+$( "#years" ).slider();
+ console.log("pagechange-flow3"); updateAccountGrowthYears()
+});
+
 var GLOBAL={};
 GLOBAL.empContLimit = 0;
-
 GLOBAL.contLimitInd = 3400;
 GLOBAL.contLimitNotInd = 6750;
 GLOBAL.contLimitIndOver55 = 4400;
@@ -68,42 +80,36 @@ var updateContLimit = function(){
 	  min:0,
 	  max:GLOBAL.empContLimit
 	}).slider("refresh");
-	$.mobile.navigate( "#flow2" );
-}
-var updateWithdrawlLimit = function(){
-  //Needed to initialize slider before refresh
-  $( "#annualWithdrawl" ).slider();
-  
-  var maxWithdrawl = GLOBAL.getVal('currHSABal')+GLOBAL.getVal('annualCont');
-  
-  //Reset slider limits  
 	
+}
+var updateWithdrawlLimit = function(){ 
+
+  var maxWithdrawl = GLOBAL.getVal('currHSABal')+GLOBAL.getVal('annualCont');  
+  	console.log('maxWithdrawl', maxWithdrawl);
+  //Reset slider limits  	
 	if(maxWithdrawl==0){
-		console.log("0000000");
-		updateAccountGrowthYears()
+		console.log("0000000");	
+		$( "#annualWithdrawl" ).val('0')
+$( "#annualWithdrawl" ).slider( "disable" );
+
 		}else{
-				$("#annualWithdrawl").prop({
+	$( "#annualWithdrawl" ).slider( "enable" );
+		  $("#annualWithdrawl").prop({
 	  			min:0,
 	  			max:maxWithdrawl
 				}).slider("refresh");
-				$.mobile.navigate( "#flow3" );
-			}
+	}
 }
 var updateAccountGrowthYears = function(){
-  //Needed to initialize slider before refresh
- $.mobile.navigate( "#flow4" );
-  //$( "#years" ).slider();
- 
-  //Reset slider limits  
-$( '#flow4' ).on( 'pageinit',function(event){
-	var maxYears = 100-GLOBAL.getAge();
-  $("#years").prop({
+var maxYears = 100-GLOBAL.getAge();
+  //Reset slider limits 
+ $("#years").prop({
 	  min:0,
 	  max:maxYears
 	}).slider("refresh");
-});  
-		
-}
+ }
+
+
 
 /*$('#covTier').on("change",function () {
 	updateContLimit();
@@ -115,10 +121,10 @@ $('#inpage').on("change",function () {
 
 var buildTaxPopup = function(){
 	var taxSet=[];
-	taxSet[1] ={filingStat:"Single",taxableIncome:['1A','2','3','4','5','6','7']};
-	taxSet[2] ={filingStat:"Married filing jointly",taxableIncome:['1B','2','3','4','5','6','7']};
-	taxSet[3] ={filingStat:"Married filing seperate",taxableIncome:['1C','2','3','4','5','6','7']};
-	taxSet[4] ={filingStat:"Head of household",taxableIncome:['1D','2','3','4','5','6','7']};
+	taxSet[1] ={filingStat:"Single",taxableIncome:["Up to $9,275","$9,276 - $37,650","$37,651 - $91,150","$91,151 - $190,150","$190,151 - $413,350","$413,351 - $415,050","Over $415,051"]};
+	taxSet[2] ={filingStat:"Married filing jointly",taxableIncome:["Up to $18,550", "$18,551 - $75,300", "$75,301 - $151,900", "$151,901 - $231,450", "$231,451 - $413,350", "$413,351 - $466,950", "Over $466,951"]};
+	taxSet[3] ={filingStat:"Married filing seperate",taxableIncome:["Up to $9,275","$9,276 - $37,650","$37,651 - $75,950","$75,951 - $115,725","$115,726 - $206,675","$206,676 - $233,475","Over $233,476"]};
+	taxSet[4] ={filingStat:"Head of household",taxableIncome:["Up to $13,250", "$13,251 - $50,400", "$50,401 - $130,150", "$130,151 - $210,800"	, "$210,801 - $413,350"	, "$413,351 - $441,000"	, "Over $441,001"]};
 	
 	//Prepare DOM for the popup
 	var container='';
@@ -134,6 +140,38 @@ var buildTaxPopup = function(){
 	$("#taxSet").html(container);	
 }
 buildTaxPopup();
+var ContributionArray =[];
+var labelsArr=[]
 
-
-setTimeout(function(){new Chartist.Line('#chart1', { labels: [1, 2, 3, 4], series: [[100, 120, 180, 200]] })},1000); 
+var buildContributionArray = function(){
+	var initialHSABalance= GLOBAL.getVal('currHSABal');
+	console.log("initialHSABalance========",initialHSABalance);
+console.log("initialHSA========",(initialHSABalance + GLOBAL.getVal('annualCont') - GLOBAL.getVal('annualWithdrawl') ))
+	var limit=GLOBAL.getVal('years');
+for(i=0;i<limit;i++){
+	labelsArr[i]=i;
+ContributionArray[i]= (initialHSABalance + GLOBAL.getVal('annualCont') - GLOBAL.getVal('annualWithdrawl') )*(1+ GLOBAL.getVal('interestRate')/100);
+initialHSABalance=ContributionArray[i];
+	}
+	console.log("ContributionArray========",ContributionArray)
+	
+$('#result-graph').jqChart({
+                title: { text: 'Chart' },
+                tooltips: { type: 'shared' },
+                animation: { duration: 1 },
+                axes: [
+                    {
+                        type: 'category',
+                        location: 'left',
+                        categories: labelsArr
+                    }
+                ],
+                series: [
+                    {
+                        type: 'verticalSpline',
+                        title: 'Growth',
+                        data: ContributionArray
+                    }
+                ]
+            });
+}
