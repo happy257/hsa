@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,9 +10,15 @@
 <script src="js/jquery-1.11.3.min.js"></script>
 <script src="js/jquery.mobile-1.4.5.min.js"></script>
 <script src="js/custom.js"></script>
-<link rel="stylesheet" href="css/chartist.min.css">
-<script src="js/chartist.min.js"></script>
-
+<link rel="stylesheet" href="css/jqChart.css">
+<script src="js/jqChart.min.js"></script>
+<script src="js/jqRangeSlider.min.js"></script>
+<script src="js/jquery.mousewheel.js"></script>
+<script>
+function virbatePopup(){
+	navigator.vibrate([100,100]);
+	$( "#vibrateTest" ).popup( "open", {} );
+}</script>
 <!-- 
 	<link rel="stylesheet" href="js/chartist.min.css">
 	<script src="js/chartist.min.js"></script>
@@ -27,7 +34,7 @@
     <p>This panel is positioned on the left with the overlay display mode. The panel markup should be <em>before</em> the header, content and footer in the source order.</p>
     <p>To close, click off the panel, swipe left or right, hit the Esc key.</p>
     <p>We could use this drawer to link to other modules like Retirement modeler or even MEE!</p>
-	<a href="#" onClick="navigator.vibrate([100,100]);">Test Vibration</a>
+	<!-- <a href="#" onClick="navigator.vibrate([100,100]);">Test Vibration</a> -->
   </div>
 </div>
 <!-- /PANEL -->
@@ -36,10 +43,10 @@
 <div data-role="page" class="appPage" id="intro">
   <div data-role="content">
     <div class="ui-grid-solo">
-      <h1 style="text-align:center">App Banner</h1>
-      <h2>App Title</h2>
-      <p id="subhead1">Some introduction text goes here. This is a prototype only.</p>
-      <p id="subhead2">There can be some more text if need be. We have lots of space with us right now.</p>
+      <!-- <h1 style="text-align:center">App Banner</h1> -->
+      <h2>Model Your HSA Growth</h2>
+      <!-- <p id="subhead1">Some introduction text goes here. This is a prototype only.</p> -->
+      <p id="subhead2">Invest in your health, tax-free by setting aside money to pay for your qualified health care expenses today and in the future.</p>
       <a href="#flow1"  class="ui-btn ui-shadow ui-btn-inline ui-corner-all ui-icon-carat-r ui-btn-icon-right appBtnColor">Get Started</a>
 	</div>
   </div>
@@ -81,7 +88,7 @@
   </div>
   <!-- /content -->
   <div data-role="footer" data-position="fixed">
-    <div style="text-align:center"> <a href="#intro" onClick="goBack()" class="ui-btn ui-shadow ui-btn-inline ui-corner-all ui-btn-b ui-icon-carat-l ui-btn-icon-notext"></a> <a  onClick="updateContLimit()" class="ui-btn ui-shadow ui-btn-inline ui-corner-all ui-btn-b ui-icon-carat-r ui-btn-icon-notext"></a> </div>
+    <div style="text-align:center"> <a href="#intro" onClick="goBack()" class="ui-btn ui-shadow ui-btn-inline ui-corner-all ui-btn-b ui-icon-carat-l ui-btn-icon-notext"></a> <a href="#flow2" class="ui-btn ui-shadow ui-btn-inline ui-corner-all ui-btn-b ui-icon-carat-r ui-btn-icon-notext"></a> </div>
   </div>
   <!-- /footer -->
 </div>
@@ -106,7 +113,7 @@
   </div>
   <!-- /content -->
   <div data-role="footer" data-position="fixed">
-        <div style="text-align:center"> <a href="#flow1" onClick="goBack()" class="ui-btn ui-shadow ui-btn-inline ui-corner-all ui-btn-b ui-icon-carat-l ui-btn-icon-notext"></a> <a onClick="updateWithdrawlLimit()"  class="ui-btn ui-shadow ui-btn-inline ui-corner-all ui-btn-b ui-icon-carat-r ui-btn-icon-notext"></a> </div>
+        <div style="text-align:center"> <a href="#flow1" onClick="goBack()" class="ui-btn ui-shadow ui-btn-inline ui-corner-all ui-btn-b ui-icon-carat-l ui-btn-icon-notext"></a> <a href="#flow3" class="ui-btn ui-shadow ui-btn-inline ui-corner-all ui-btn-b ui-icon-carat-r ui-btn-icon-notext"></a> </div>
   </div>
   <!-- /footer -->
 </div>
@@ -122,15 +129,20 @@
     <div class="ui-grid-solo">
       <form name="form_flow3">
         <label for="annualWithdrawl">Estimated Annual Withdrawals</label>
-        <input type="range" id="annualWithdrawl" name="annualWithdrawl" onBlur="GLOBAL.getVal('annualWithdrawl')" min="0" max="100" value="0">
+        <input type="range" id="annualWithdrawl" name="annualWithdrawl"  onBlur="GLOBAL.getVal('annualWithdrawl')" min="0" max="100" value="0">
+		
+		<a href="#" onClick="virbatePopup()" data-theme="b" data-position-to="window" data-transition="fade" data-rel="popup" data-role="button" data-mini="true" data-inline="true" data-icon="recycle">Shake things up!</a>
+		<div id="vibrateTest" data-role="popup" data-theme="a" data-overlay-theme="b" class="ui-content" data-dismissable="false">
+			<img src="img/profile.jpg" alt="Abhinav_profile">
+			<h1 class="textCenter">Did this work?</h1>
+		</div>
        </form>
-	   <div id="chartDiv"></div>
-		<a href="#" onClick="new Chartist.Line('#chartDiv',{labels: [1, 2, 3, 4], series: [[100, 120, 180, 200]] })">CHART</a>;
+	  
     </div>
   </div>
   <!-- /content -->
   <div data-role="footer" data-position="fixed">
-        <div style="text-align:center"> <a href="#flow2" onClick="goBack()" class="ui-btn ui-shadow ui-btn-inline ui-corner-all ui-btn-b ui-icon-carat-l ui-btn-icon-notext"></a> <a href="#flow4" onClick="updateAccountGrowthYears()" class="ui-btn ui-shadow ui-btn-inline ui-corner-all ui-btn-b ui-icon-carat-r ui-btn-icon-notext"></a> </div>
+        <div style="text-align:center"> <a href="#flow2" onClick="goBack()" class="ui-btn ui-shadow ui-btn-inline ui-corner-all ui-btn-b ui-icon-carat-l ui-btn-icon-notext"></a> <a href="#flow4"  class="ui-btn ui-shadow ui-btn-inline ui-corner-all ui-btn-b ui-icon-carat-r ui-btn-icon-notext"></a> </div>
   </div>
   <!-- /footer -->
 </div>
@@ -149,7 +161,7 @@
         <input type="range" min="0" max="10" value="0" id="interestRate">
         <br>
 		<label for="inp_currHSABal">Account Growth</label>
-        <input type="range"  min="1" max="50" value="0" id="years">
+        <input type="range"  min="1" max="50" value="5" id="years" name="years" >
         <br>
 		<label for="inp_taxRate">Marginal Tax Rate</label>
         <select name="inp_taxRate" id="taxRate" data-native-menu="false" data-mini="true" data-mini="true" data-inline="true">
@@ -171,17 +183,33 @@
 			</div>
 			<div class="disclaimer">Need to make these lists dynamic.</div>
 		</div>
-		<a href="#flow1" class="ui-btn ui-btn-b ui-shadow ui-btn-inline ui-corner-all ui-icon-carat-r ui-btn-icon-right">Get Started</a>
+		<!-- <a href="#flow1" class="ui-btn ui-btn-b ui-shadow ui-btn-inline ui-corner-all ui-icon-carat-r ui-btn-icon-right">Get Started</a> -->
       </form>
     </div>
   </div>
   <!-- /content -->
   <div data-role="footer" data-position="fixed">
-        <div style="text-align:center"> <a href="#" onClick="goBack()" class="ui-btn ui-shadow ui-btn-inline ui-corner-all ui-btn-b ui-icon-carat-l ui-btn-icon-notext"></a> <a href="#flow5" class="ui-btn ui-shadow ui-btn-inline ui-corner-all ui-btn-b ui-icon-carat-r ui-btn-icon-notext"></a> </div>
+        <div style="text-align:center"> <a href="#" onClick="goBack()" class="ui-btn ui-shadow ui-btn-inline ui-corner-all ui-btn-b ui-icon-carat-l ui-btn-icon-notext"></a> <a href="#flow5" onClick="buildContributionArray()" class="ui-btn ui-shadow ui-btn-inline ui-corner-all ui-btn-b ui-icon-carat-r ui-btn-icon-notext"></a> </div>
   </div>
-  <!-- /footer -->
-</div>
-<!-- /page -->
+  </div>
+  <div data-role="page" class="appPage" id="flow5">
+  <div data-role="header" data-theme="b">
+  <a href="#mypanel" class="ui-btn ui-shadow ui-btn-inline ui-corner-all ui-btn-b ui-icon-bars ui-nodisc-icon ui-btn-icon-notext"></a>
+    <div class="textCenter"> <img class="headerLogo" src="img/aon_black.png" /></div>
+  </div>
+  <!-- /header -->
+  <div data-role="content">
+    <div class="ui-grid-solo">
+     Results
+     <div id="result-graph" style="width: 400px; height: 600px;"></div>
+    </div>
+  </div>
+  <!-- /content -->
+  <div data-role="footer" data-position="fixed">
+        <div style="text-align:center"> <a href="#" onClick="goBack()" class="ui-btn ui-shadow ui-btn-inline ui-corner-all ui-btn-b ui-icon-carat-l ui-btn-icon-notext"></a>  </div>
+  </div>
+ </div>
+
 <script>
   jQuery(function() {
     	$('#mypanel').enhanceWithin().panel();
@@ -194,7 +222,7 @@ $.ajax({
   $("#subhead1").html('Came via AJAX to '+data.RestResponse.result.name)})
   .error(function(xhr,status,err){
   console.warn(xhr);
-  $("#subhead1").html('AJAX status: '+status);
+  $("#subhead1").html('AJAX  status: '+status+'- Please check network connection');
   console.log(err);
 });
 </script>
