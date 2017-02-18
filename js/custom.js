@@ -146,32 +146,66 @@ var labelsArr=[]
 var buildContributionArray = function(){
 	var initialHSABalance= GLOBAL.getVal('currHSABal');
 	console.log("initialHSABalance========",initialHSABalance);
-console.log("initialHSA========",(initialHSABalance + GLOBAL.getVal('annualCont') - GLOBAL.getVal('annualWithdrawl') ))
+	console.log("initialHSA========",(initialHSABalance + GLOBAL.getVal('annualCont') - GLOBAL.getVal('annualWithdrawl') ))
 	var limit=GLOBAL.getVal('years');
-for(i=0;i<limit;i++){
-	labelsArr[i]=i;
-ContributionArray[i]= (initialHSABalance + GLOBAL.getVal('annualCont') - GLOBAL.getVal('annualWithdrawl') )*(1+ GLOBAL.getVal('interestRate')/100);
-initialHSABalance=ContributionArray[i];
+	for(i=0;i<limit;i++){
+		labelsArr[i]=i;
+		ContributionArray[i]= (initialHSABalance + GLOBAL.getVal('annualCont') - GLOBAL.getVal('annualWithdrawl') )*(1+ GLOBAL.getVal('interestRate')/100);
+		initialHSABalance=ContributionArray[i];
 	}
-	console.log("ContributionArray========",ContributionArray)
+	console.log("ContributionArray:",ContributionArray)
 	
+	
+	$('#result-graph').css('width',window.innerWidth-50);
+	$('#result-graph').css('height',window.innerHeight-120);
+	console.log($('#result-graph').css('width'));
 $('#result-graph').jqChart({
-                title: { text: 'Chart' },
-                tooltips: { type: 'shared' },
-                animation: { duration: 1 },
-                axes: [
+                //title: {text: 'Vertical Spline Chart'},
+                tooltips	: {type: 'shared'},
+				background: 'white',
+                animation	: {duration: 1},
+				legend		: {visible: false,location: 'top'},
+				series: [
                     {
-                        type: 'category',
+                        type: 'verticalLine',
+                        title: 'Contributions',
+                        data: ContributionArray//[297,594,891,1188,1485]
+					}
+                ]
+				,border: {
+                    cornerRadius: 0,
+                    lineWidth: 0,
+                    strokeStyle: '#6ba851'
+                }
+				,axes: [
+                    {
+						categories: labelsArr,
                         location: 'left',
-                        categories: labelsArr
-                    }
-                ],
-                series: [
-                    {
-                        type: 'verticalSpline',
-                        title: 'Growth',
-                        data: ContributionArray
+                        majorGridLines: {
+                            lineWidth: 1,
+                            strokeStyle: '#efefef'
+                        },
+						minorGridLines: {
+                            lineWidth: 1,
+                            strokeStyle: '#efefef',
+                            strokeDashArray: [2, 2],
+							interval:1
+                        }
                     }
                 ]
+				,shadows: {
+                    enabled: true,
+                    shadowColor: 'gray',
+                    shadowBlur: 5,
+                    shadowOffsetX: 3,
+                    shadowOffsetY: 3
+                }
+				,noDataMessage: {
+                    text: 'No data available',
+                    font: '20px sans-serif'
+                },
+            });
+			$('#result-graph').bind('tooltipFormat', function (e, data) {
+                return "$ " + data.y;
             });
 }
